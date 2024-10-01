@@ -11,7 +11,7 @@ export const ApiConnectParam = {
 
   export const AppRoute = {
     Main: '/',
-    EdiUser: '/edit-user',
+    EditUser: '/edit-user',
   } as const;
 
 export const REDUCER_NAME = 'USERS'

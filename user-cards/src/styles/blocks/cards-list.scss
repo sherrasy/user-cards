@@ -1,0 +1,12 @@
+.cards-list {
+  margin: 40px 140px;
+  &__title {
+    margin: 0;
+    padding-bottom: 16px;
+    @include font-params-title($color-black);
+    border-bottom: 1px solid $color-gainsboro;
+  }
+  &__container {
+    margin: 28px 0;
+  }
+}

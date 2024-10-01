@@ -18,46 +18,46 @@
   }
 }
 
-@mixin font-params-title() {
+@mixin font-params-title($color) {
   font-weight: 600;
   font-size: 24px;
-  color: $color-black;
+  color: $color;
 }
 
-@mixin font-params-headline() {
+@mixin font-params-headline($color) {
   font-weight: 600;
   font-size: 20px;
-  color: $color-black;
+  color: $color;
 
   @media screen and (max-width: 767px) {
     font-size: 18px;
   }
 }
 
-@mixin font-params-text-1($font-weight) {
+@mixin font-params-text-1($font-weight, $color) {
   font-weight: $font-weight;
   font-size: 18px;
-  color: $color-black;
+  color: $color;
 
   @media screen and (max-width: 767px) {
     font-size: 16px;
   }
 }
 
-@mixin font-params-text-2($font-weight) {
+@mixin font-params-text-2($font-weight, $color) {
   font-weight: $font-weight;
   font-size: 16px;
-  color: $color-black;
+  color: $color;
 
   @media screen and (max-width: 767px) {
     font-size: 14px;
   }
 }
 
-@mixin font-params-caption() {
+@mixin font-params-caption($color) {
   font-weight: 400;
   font-size: 14px;
-  color: $color-black;
+  color: $color;
 
   @media screen and (max-width: 767px) {
     font-weight: 600;

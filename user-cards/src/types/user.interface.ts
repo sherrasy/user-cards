@@ -7,4 +7,6 @@
     phone: string; 
     companyName: string; 
     avatar: string; 
+    isActive:boolean;
+    isHidden:boolean;
   }

@@ -20,6 +20,13 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler', 
+      },
+    },
+  },
   plugins: [react(),svgr({ svgrOptions: { icon: true } })],
   server: {
     open: true,
