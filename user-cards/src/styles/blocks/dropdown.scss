@@ -1,0 +1,19 @@
+.dropdown-container {
+  &.dropdown-hidden {
+    display: none;
+  }
+  padding: 8px;
+  border-radius: 12px;
+
+  &__option {
+    padding: 8px 12px;
+    width: 184px;
+    height: 22px;
+    @include font-params-text-2(500, $color-nero);
+
+    &:hover {
+      cursor: pointer;
+      color: $color-pelorous;
+    }
+  }
+}

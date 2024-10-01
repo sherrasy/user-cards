@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1140px;
+  min-width: 100%;
+  height: 24px;
+  padding: 16px 0;
+  background-color: $color-white;
+
+  &__user {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  &__logo svg {
+    width: 124px;
+    height: 24px;
+  }
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  &__controls > svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__controls,
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.user-info {
+  gap: 8px;
+  &__avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &__name {
+    @include font-params-text-2(500, $color-zambezi);
+  }
+}

@@ -1,0 +1,17 @@
+.edit-user-page {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  background-color: $color-white-smoke;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__user-data {
+    display: flex;
+    margin: 0px 140px;
+  }
+}

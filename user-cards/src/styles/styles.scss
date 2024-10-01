@@ -1,0 +1,23 @@
+// Global
+//-----------------
+
+@import './vendor/normalize';
+@import './global/variables';
+@import './global/fonts';
+@import './global/mixins';
+
+// Pages
+//-----------------
+@import './pages/main-page';
+@import './pages/edit-user-page';
+
+// Blocks
+//-----------------
+@import './blocks/back-button';
+@import './blocks/card';
+@import './blocks/cards-list';
+@import './blocks/dropdown';
+@import './blocks/error-message';
+@import './blocks/header';
+@import './blocks/popup';
+@import './blocks/profile';
