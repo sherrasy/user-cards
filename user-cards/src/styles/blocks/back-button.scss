@@ -1,0 +1,26 @@
+.back-button {
+  &__wrapper {
+    margin: 20px 140px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &:not(.disabled):hover {
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    width: 28px;
+    height: 28px;
+    path {
+      stroke: $color-zambezi;
+    }
+  }
+
+  &__text {
+    @include font-params-headline($color-zambezi);
+  }
+}

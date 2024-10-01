@@ -1,10 +1,10 @@
 type DropdownProps = {
   isOpen: boolean;
-  isActive: boolean;
+  isArchived: boolean;
   id: number;
 };
 
-function Dropdown({ isOpen, isActive, id }: DropdownProps): JSX.Element {
+function Dropdown({ isOpen, isArchived, id }: DropdownProps): JSX.Element {
   const handleEdit = (id: number) => console.log('edit', id);
   const handleArchive = (id: number) => console.log('archive', id);
   const handleHide = (id: number) => console.log('hide', id);
@@ -15,7 +15,7 @@ function Dropdown({ isOpen, isActive, id }: DropdownProps): JSX.Element {
     { name: 'Скрыть', cb: () => handleHide(id) },
   ];
   const archivedOptions = [{ name: 'Активировать', cb: () => handleHide(id) }];
-  const currentOptions = isActive ? archivedOptions : defaultOptions;
+  const currentOptions = isArchived ? archivedOptions : defaultOptions;
 
   return (
     <div className={`dropdown-container ${!isOpen ? 'dropdown-hidden':''}`}>

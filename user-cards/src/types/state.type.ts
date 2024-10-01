@@ -2,7 +2,7 @@ import { store } from "@/store";
 import { User } from "./user.interface";
 
 export type UsersState = {
-  users: User | null
+    users: User[] | null
     isLoading: boolean;
     isPosting: boolean;
     hasError: boolean; 
