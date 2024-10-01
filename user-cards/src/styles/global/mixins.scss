@@ -1,0 +1,66 @@
+@mixin default-button-params() {
+  padding: 12px 42px;
+  width: 136px;
+  height: 46px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  background-color: $color-nero;
+  color: $color-white;
+  &:hover {
+    cursor: pointer;
+    background-color: $color-white-smoke;
+    color: $color-zambezi;
+  }
+  @media screen and (max-width: 767px) {
+    width: 130px;
+    height: 44px;
+  }
+}
+
+@mixin font-params-title() {
+  font-weight: 600;
+  font-size: 24px;
+  color: $color-black;
+}
+
+@mixin font-params-headline() {
+  font-weight: 600;
+  font-size: 20px;
+  color: $color-black;
+
+  @media screen and (max-width: 767px) {
+    font-size: 18px;
+  }
+}
+
+@mixin font-params-text-1($font-weight) {
+  font-weight: $font-weight;
+  font-size: 18px;
+  color: $color-black;
+
+  @media screen and (max-width: 767px) {
+    font-size: 16px;
+  }
+}
+
+@mixin font-params-text-2($font-weight) {
+  font-weight: $font-weight;
+  font-size: 16px;
+  color: $color-black;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+
+@mixin font-params-caption() {
+  font-weight: 400;
+  font-size: 14px;
+  color: $color-black;
+
+  @media screen and (max-width: 767px) {
+    font-weight: 600;
+    font-size: 10px;
+  }
+}

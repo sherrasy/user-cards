@@ -1,0 +1,15 @@
+// Global
+//-----------------
+
+@import './vendor/normalize';
+@import './global/variables';
+@import './global/fonts';
+@import './global/mixins';
+
+// Pages
+//-----------------
+@import './pages/main-page';
+@import './pages/edit-user-page';
+
+// Blocks
+//-----------------
