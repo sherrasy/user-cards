@@ -30,5 +30,9 @@
     &.isActive {
       @include font-params-text-2(600, $color-nero);
     }
+    &:hover {
+      cursor: pointer;
+      @include font-params-text-2(500, $color-pelorous);
+    }
   }
 }

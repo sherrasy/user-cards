@@ -29,3 +29,16 @@ export const getArchivedUsers = () =>
         return users.filter((item)=> item.isArchived && !item.isHidden);
       }
 );
+
+export const getUserById = (id?:string) =>
+    createSelector(
+      [getUsers],
+      (users): null | User => {
+        if (!users || !id) {
+          return null;
+        }
+        const userIndex = users.findIndex((item) => item.id === +id); 
+        const user = userIndex !==-1? users[userIndex] : null;
+        return user;
+      }
+);

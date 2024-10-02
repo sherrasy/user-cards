@@ -6,7 +6,7 @@ import { UpdateUserStatus } from '@/types/update-user-status.type';
 
 const initialState: UsersState = {
   users: null,
-  currentUserId:null,
+  currentUserId: null,
   isLoading: false,
   isPosting: false,
   hasError: false,
@@ -18,22 +18,34 @@ export const userData = createSlice({
   initialState,
   reducers: {
     setCurrentUserId: (state, action: PayloadAction<number | null>) => {
-      state.currentUserId = action.payload;
-    },
-    updateUserStatus: (state, action: PayloadAction<UpdateUserStatus>) => {
-      if(!state.users){
+      if (action.payload !== state.currentUserId) {
+        state.currentUserId = action.payload;
         return;
       }
-      const {payload}=action;
-      const {id, isHidden, isArchived} = payload
-      const userId = state.users.findIndex((item) => item.id === id)
+      state.currentUserId = null;
+    },
+    updateUserStatus: (state, action: PayloadAction<UpdateUserStatus>) => {
+      if (!state.users) {
+        return;
+      }
+      const { payload } = action;
+      const { id, isHidden, isArchived } = payload;
+      const userId = state.users.findIndex((item) => item.id === id);
       if (userId !== -1) {
-        const currentHidden = isHidden ? isHidden : state.users[userId].isHidden;
-        const currentArchived = isArchived ? isArchived : state.users[userId].isArchived;
-        state.users[userId] = { ...state.users[userId], isHidden:currentHidden, isArchived:currentArchived }
+        const currentHidden =
+          isHidden !== undefined ? isHidden : state.users[userId].isHidden;
+        const currentArchived =
+          isArchived !== undefined
+            ? isArchived
+            : state.users[userId].isArchived;
+        state.users[userId] = {
+          ...state.users[userId],
+          isHidden: currentHidden,
+          isArchived: currentArchived,
+        };
         state.currentUserId = null;
-      }   
-     },
+      }
+    },
   },
   extraReducers(builder) {
     builder
@@ -53,15 +65,16 @@ export const userData = createSlice({
         state.isPosting = true;
       })
       .addCase(updateUser.fulfilled, (state, { payload }) => {
-        if(!state.users){
+        if (!state.users) {
           return;
         }
-        const userId = state.users.findIndex((item) => item.id === payload.id)
+        const userId = state.users.findIndex((item) => item.id === payload.id);
         if (userId !== -1) {
-          state.users[userId] = { ...payload }
-        }   
+          state.users[userId] = { ...payload };
+        }
         state.isPosting = false;
         state.hasPostingError = false;
+        state.currentUserId = null;
       })
       .addCase(updateUser.rejected, (state) => {
         state.isPosting = false;
