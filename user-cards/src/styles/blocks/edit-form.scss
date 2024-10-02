@@ -1,0 +1,66 @@
+.edit-form {
+  &__wrapper {
+    padding: 40px;
+    background-color: $color-white;
+    border-radius: 16px;
+    width: 680px;
+  }
+  &__title {
+    margin: 0;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    @include font-params-title($color-nero);
+    border-bottom: 1px solid $color-gainsboro;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+  }
+
+  &__button {
+    margin-top: 10px;
+    @include default-button-params;
+  }
+  &__error {
+    padding: 10px;
+    color: $color-pelorous;
+  }
+}
+.form-input {
+  label {
+    margin-bottom: 10px;
+  }
+
+  &__label {
+    @include font-params-text-1(600, $color-nero);
+  }
+
+  &__input {
+    height: 22px;
+    padding: 10px 8px 10px 16px;
+    border-radius: 50px;
+    border: none;
+    outline: 2px solid $color-gainsboro;
+    @include font-params-text-1(500, $color-nero);
+    &::placeholder {
+      color: $color-zambezi;
+    }
+  }
+
+  &__input-reset {
+    position: relative;
+    bottom: 32px;
+    left: 92%;
+    width: 24px;
+    height: 24px;
+    path {
+      fill: $color-zambezi;
+    }
+  }
+
+  &__input:not(:focus):empty + &__input-reset {
+    opacity: 0;
+  }
+}

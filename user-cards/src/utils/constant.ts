@@ -4,7 +4,7 @@ export const ApiConnectParam = {
 };
 
 export const AppMessage = {
-  Loading: 'Загрузка...',
+  Loading: 'Идет загрузка',
   Error: 'Произошла ошибка. Попробуйте снова.',
 } as const;
 
@@ -17,7 +17,6 @@ export const REDUCER_NAME = 'USERS';
 
 export const ApiActionName = {
   FetchUsers: 'fetch-users',
-  AddUser: 'add-user',
   EditUser: 'edit-user',
 } as const;
 

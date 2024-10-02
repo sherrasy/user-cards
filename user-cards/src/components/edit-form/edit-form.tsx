@@ -1,16 +1,19 @@
 import { getHasPostingError, getIsPosting } from '@/store/user-data/selectors';
-import { EditFormData } from '@/types/edit-form-data.type';
-import { AppMessage, FormFieldLabel, FormFieldName } from '@/utils/constant';
-import { validateFormData } from '@/utils/helpers';
-import { useAppDispatch, useAppSelector } from '@/utils/hooks';
+import { EditFormData } from '@frontend-types/edit-form-data.type';
 import { User } from '@frontend-types/user.interface';
+import { updateUser } from '@store/user-data/api-actions';
+import { AppMessage, FormFieldLabel, FormFieldName } from '@utils/constant';
+import { validateFormData } from '@utils/helpers';
+import { useAppDispatch, useAppSelector } from '@utils/hooks';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import Cross from '@assets/icons/cross.svg?react';
 
 type EditFormProps = {
   user: User;
+  handleVisibilityPopup: () => void;
 };
 
-function EditForm({ user }: EditFormProps): JSX.Element {
+function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
   const { id, name, userName, email, city, phone, companyName } = user;
   const dispatch = useAppDispatch();
   const [formData, setFormData] = useState<EditFormData>({
@@ -30,12 +33,20 @@ function EditForm({ user }: EditFormProps): JSX.Element {
     setFormData({ ...formData, [name]: value });
   };
 
+  const resetDataInput = (name: string) => {
+    setFormData({ ...formData, [name]: '' });
+  };
+
   const handleFormSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     const validationResults = validateFormData(formData);
     const isValid = !Object.values(validationResults).includes(false);
     if (isValid) {
       setInvalidMessage('');
+      dispatch(updateUser({ id, ...formData })).then(
+        (res) =>
+          res.meta.requestStatus === 'fulfilled' && handleVisibilityPopup()
+      );
     } else {
       const message = 'Поля не могут быть пустыми';
       setInvalidMessage(message);
@@ -44,20 +55,25 @@ function EditForm({ user }: EditFormProps): JSX.Element {
 
   return (
     <div className='edit-form__wrapper'>
+      <h1 className='edit-form__title'> Данные профиля</h1>
       <form method='post' action='/' onSubmit={handleFormSubmit}>
-
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.Name}>
             <span className='form-input__label'>{FormFieldLabel.Name}</span>
           </label>
           <input
             type='text'
+            id={FormFieldName.Name}
             name={FormFieldName.Name}
             className='form-input__input'
             placeholder='Имя'
-            defaultValue={name}
+            value={formData.name || ''}
             onChange={handleInputChange}
             required
+          />
+          <Cross
+            className='form-input__input-reset'
+            onClick={() => resetDataInput(FormFieldName.Name)}
           />
         </div>
         <div className='edit-form__input form-input'>
@@ -66,26 +82,36 @@ function EditForm({ user }: EditFormProps): JSX.Element {
           </label>
           <input
             type='text'
+            id={FormFieldName.UserName}
             name={FormFieldName.UserName}
             className='form-input__input'
             placeholder='Ник'
-            defaultValue={userName}
+            value={formData.userName || ''}
             onChange={handleInputChange}
             required
           />
-        </div> 
-               <div className='edit-form__input form-input'>
+          <Cross
+            className='form-input__input-reset'
+            onClick={() => resetDataInput(FormFieldName.UserName)}
+          />
+        </div>
+        <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.Email}>
             <span className='form-input__label'>{FormFieldLabel.Email}</span>
           </label>
           <input
             type='email'
+            id={FormFieldName.Email}
             name={FormFieldName.Email}
             className='form-input__input'
             placeholder='example@mail.com'
-            defaultValue={email}
+            value={formData.email || ''}
             onChange={handleInputChange}
             required
+          />
+          <Cross
+            className='form-input__input-reset'
+            onClick={() => resetDataInput(FormFieldName.Email)}
           />
         </div>
         <div className='edit-form__input form-input'>
@@ -94,41 +120,57 @@ function EditForm({ user }: EditFormProps): JSX.Element {
           </label>
           <input
             type='text'
+            id={FormFieldName.City}
             name={FormFieldName.City}
             className='form-input__input'
-            placeholder='Ник'
-            defaultValue={city}
+            placeholder='Город'
+            value={formData.city || ''}
             onChange={handleInputChange}
             required
+          />
+          <Cross
+            className='form-input__input-reset'
+            onClick={() => resetDataInput(FormFieldName.City)}
           />
         </div>
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.Phone}>
             <span className='form-input__label'>{FormFieldLabel.Phone}</span>
-            <span className='form-input__label-required'>*</span>
           </label>
           <input
             type='tel'
+            id={FormFieldName.Phone}
             name={FormFieldName.Phone}
             className='form-input__input'
             placeholder='+7 999 999-99-99'
-            defaultValue={phone}
+            value={formData.phone || ''}
             onChange={handleInputChange}
             required
+          />
+          <Cross
+            className='form-input__input-reset'
+            onClick={() => resetDataInput(FormFieldName.Phone)}
           />
         </div>
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.CompanyName}>
-            <span className='form-input__label'>{FormFieldLabel.CompanyName}</span>
+            <span className='form-input__label'>
+              {FormFieldLabel.CompanyName}
+            </span>
           </label>
           <input
             type='text'
+            id={FormFieldName.CompanyName}
             name={FormFieldName.CompanyName}
             className='form-input__input'
-            placeholder='Ник'
-            defaultValue={companyName}
+            placeholder='Название компании'
+            value={formData.companyName || ''}
             onChange={handleInputChange}
             required
+          />
+          <Cross
+            className='form-input__input-reset'
+            onClick={() => resetDataInput(FormFieldName.CompanyName)}
           />
         </div>
         <button
