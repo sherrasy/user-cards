@@ -7,6 +7,7 @@ export const getIsPosting = (state: State): boolean => state.isPosting;
 export const getHasError = (state: State): boolean => state.hasError;
 export const getHasPostingError = (state: State): boolean =>  state.hasPostingError;
 export const getUsers = (state: State): User[] | null => state.users;
+export const getCurrentUserId = (state: State): number | null => state.currentUserId;
 export const getActiveUsers = () =>
     createSelector(
       [getUsers],

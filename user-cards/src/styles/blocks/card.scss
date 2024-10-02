@@ -24,6 +24,12 @@
     width: 100%;
   }
 
+  &__main-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   &__footer {
     @include font-params-text-2(500, $color-nobel);
   }
@@ -36,7 +42,11 @@
   &__dropdown-toggle {
     width: 24px;
     height: 24px;
-
+    &.toggle-active {
+      path {
+        fill: $color-zambezi;
+      }
+    }
     &:hover {
       cursor: pointer;
       path {
@@ -52,8 +62,8 @@
   gap: 4px;
   max-width: 160px;
   &__name {
-    @include font-params-headline($color-pelorous);
     word-wrap: break-word;
+    @include font-params-headline($color-pelorous);
   }
   &__company {
     @include font-params-text-2(500, $color-zambezi);
