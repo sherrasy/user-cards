@@ -1,5 +1,5 @@
 type ProfileProps = {
-  avatar?: string;
+  avatar: string;
 };
 
 function Profile({ avatar }: ProfileProps): JSX.Element {
@@ -13,7 +13,7 @@ function Profile({ avatar }: ProfileProps): JSX.Element {
   return (
     <div className='profile__wrapper'>
       <div className='profile__image'>
-        <img src='img/avatar.jpg' alt='avatar-image' />
+        <img src={avatar} alt='avatar-image' />
       </div>
       <div className='profile__settings settings'>
         <ul className='settings__list'>

@@ -2,6 +2,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
+    max-width: 360px;
     gap: 40px;
     padding: 40px;
     background-color: $color-white;
@@ -13,6 +14,7 @@
     max-width: 280px;
     max-height: 485px;
     object-fit: cover;
+    border-radius: 8px;
   }
 }
 
@@ -33,6 +35,30 @@
     &:hover {
       cursor: pointer;
       @include font-params-text-2(500, $color-pelorous);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    &__wrapper {
+      max-width: 343px;
+      max-height: 435px;
+      gap: 24px;
+      padding: 28px;
+    }
+    &__image img {
+      width: 287px;
+      height: 187px;
+      max-width: 287px;
+      max-height: 187px;
+    }
+  }
+
+  .settings {
+    &__option {
+      margin-bottom: 20px;
+      padding-bottom: 8px;
     }
   }
 }

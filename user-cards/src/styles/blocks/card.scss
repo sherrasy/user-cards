@@ -3,7 +3,11 @@
     padding: 24px;
     height: 120px;
     width: 312px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 20px;
     background-color: $color-white;
@@ -13,20 +17,32 @@
   &__image img {
     width: 112px;
     height: 120px;
+    -o-object-fit: cover;
     object-fit: cover;
     border-radius: 8px;
   }
 
   &__user-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     height: 100%;
     width: 100%;
   }
 
   &__main-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
 
@@ -49,15 +65,17 @@
     }
     &:hover {
       cursor: pointer;
-      path {
-        fill: $color-pelorous;
-      }
     }
   }
 }
 
 .card-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 4px;
   max-width: 160px;
@@ -73,6 +91,7 @@
 .archived-list {
   .card {
     &__image {
+      -webkit-filter: grayscale(1);
       filter: grayscale(1);
     }
     &__footer {
@@ -86,5 +105,57 @@
     &__company {
       @include font-params-text-2(500, $color-nobel);
     }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    &:not(.toggle-active):hover {
+      path {
+        fill: $color-pelorous;
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .card {
+    &__container {
+      padding: 16px;
+      min-height: 210px;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      width: 130px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__image img {
+      width: 130px;
+    }
+
+    &__controls {
+      position: relative;
+      left: 10px;
+    }
+
+    &__dropdown-toggle {
+      path {
+        -webkit-transform: scale(0.65);
+        -ms-transform: scale(0.65);
+        transform: scale(0.65);
+      }
+    }
+
+    &__main-info {
+      min-height: 74px;
+    }
+  }
+
+  .card-info {
+    max-width: 106px;
   }
 }

@@ -3,7 +3,7 @@
     padding: 40px;
     background-color: $color-white;
     border-radius: 16px;
-    width: 680px;
+    width: 760px;
   }
   &__title {
     margin: 0;
@@ -14,7 +14,12 @@
   }
 
   &__input {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 420px;
   }
@@ -28,6 +33,7 @@
     color: $color-pelorous;
   }
 }
+
 .form-input {
   label {
     margin-bottom: 10px;
@@ -44,6 +50,11 @@
     border: none;
     outline: 2px solid $color-gainsboro;
     @include font-params-text-1(500, $color-nero);
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder,
+    &::-ms-input-placeholder,
     &::placeholder {
       color: $color-zambezi;
     }
@@ -60,7 +71,43 @@
     }
   }
 
+  &__input:focus {
+    color: $color-zambezi;
+  }
+
   &__input:not(:focus):empty + &__input-reset {
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .edit-form {
+    &__wrapper {
+      padding: 28px;
+      width: 287px;
+    }
+    &__title {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+    }
+    &__input {
+      width: 287px;
+    }
+    &__button {
+      margin-top: 4px;
+      width: 100%;
+    }
+  }
+
+  .form-input {
+    &__input-reset {
+      position: relative;
+      bottom: 32px;
+      left: 90%;
+    }
+    &__input {
+      height: 19px;
+      padding: 10px 8px 10px 16px;
+    }
   }
 }

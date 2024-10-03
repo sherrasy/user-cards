@@ -1,6 +1,11 @@
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 1140px;
   min-width: 100%;
@@ -9,7 +14,11 @@
   background-color: $color-white;
 
   &__user {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
     align-items: baseline;
     gap: 20px;
   }
@@ -21,7 +30,11 @@
 }
 
 .user-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   &__controls > svg {
     width: 24px;
@@ -30,7 +43,11 @@
 
   &__controls,
   &__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 
@@ -38,6 +55,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    -o-object-fit: cover;
     object-fit: cover;
   }
 }
@@ -48,9 +66,39 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    -o-object-fit: cover;
     object-fit: cover;
   }
   &__name {
     @include font-params-text-2(500, $color-zambezi);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    width: 375px;
+    max-width: 100%;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
+    &__logo {
+      margin-left: 16px;
+    }
+  }
+
+  .user-container {
+    &__controls {
+      display: none;
+    }
+  }
+
+  .user-info {
+    &__name {
+      display: none;
+    }
+    &__avatar {
+      margin-right: 11px;
+    }
   }
 }

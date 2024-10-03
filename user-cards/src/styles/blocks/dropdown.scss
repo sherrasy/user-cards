@@ -5,6 +5,7 @@
   padding: 8px;
   border-radius: 12px;
   background-color: $color-white;
+  -webkit-box-shadow: 5px 5px 10px $color-nero-transparent;
   box-shadow: 5px 5px 10px $color-nero-transparent;
   &.dropdown-hidden {
     display: none;
@@ -24,6 +25,18 @@
     &:hover {
       cursor: pointer;
       color: $color-pelorous;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .dropdown-container {
+    position: absolute;
+    right: 0px;
+    width: 144px;
+
+    &__option {
+      height: 19px;
     }
   }
 }

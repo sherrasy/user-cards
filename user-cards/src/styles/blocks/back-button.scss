@@ -1,10 +1,15 @@
 .back-button {
   &__wrapper {
-    margin: 20px 140px;
+    margin-top: 20px;
+    margin-bottom: 25px;
   }
 
   &__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 8px;
     &:not(.disabled):hover {
@@ -22,5 +27,19 @@
 
   &__text {
     @include font-params-headline($color-zambezi);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .back-button {
+    &__wrapper {
+      margin: 14px 0;
+    }
+
+    &__icon {
+      path:first-child {
+        stroke: none;
+      }
+    }
   }
 }

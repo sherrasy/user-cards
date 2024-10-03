@@ -1,5 +1,6 @@
 .cards-list {
-  margin: 40px 140px;
+  margin-top: 40px;
+
   &__title {
     margin: 0;
     padding-bottom: 16px;
@@ -7,9 +8,24 @@
     border-bottom: 1px solid $color-gainsboro;
   }
   &__container {
+    max-width: 1160px;
     margin: 28px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     gap: 32px 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cards-list {
+    margin-top: 20px;
+    &__container {
+      max-width: 344px;
+      margin: 16px 0;
+      gap: 20px;
+    }
   }
 }
