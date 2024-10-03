@@ -1,18 +1,38 @@
 .edit-user-page {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   height: 100%;
   background-color: $color-white-smoke;
 
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   main {
     display: flex;
     flex-direction: column;
+    width: 1160px;
+    max-width: 1160px;
     gap: 20px;
   }
 
   &__user-data {
     display: flex;
-    margin: 0px 140px;
     gap: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .edit-user-page {
+    main {
+      max-width: 343px;
+    }
+
+    &__user-data {
+      flex-direction: column;
+      gap: 32px;
+    }
   }
 }

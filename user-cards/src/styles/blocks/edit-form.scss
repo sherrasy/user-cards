@@ -1,26 +1,30 @@
 .edit-form {
   &__wrapper {
-    padding: 40px;
+    padding: 42px 40px;
     background-color: $color-white;
     border-radius: 16px;
-    width: 680px;
+    width: 760px;
   }
   &__title {
     margin: 0;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
+    margin-bottom: 26px;
+    padding-bottom: 18px;
     @include font-params-title($color-nero);
     border-bottom: 1px solid $color-gainsboro;
   }
 
   &__input {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
-    width: 420px;
   }
 
   &__button {
-    margin-top: 10px;
+    margin-top: 8px;
     @include default-button-params;
   }
   &__error {
@@ -28,22 +32,40 @@
     color: $color-pelorous;
   }
 }
+
 .form-input {
   label {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   &__label {
     @include font-params-text-1(600, $color-nero);
   }
 
+  &__input-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   &__input {
     height: 22px;
     padding: 10px 8px 10px 16px;
+    margin-bottom: 26px;
     border-radius: 50px;
     border: none;
     outline: 2px solid $color-gainsboro;
+    width: 396px;
     @include font-params-text-1(500, $color-nero);
+
+    &::-webkit-input-placeholder {
+      color: $color-zambezi;
+    }
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder,
+    &::-ms-input-placeholder,
     &::placeholder {
       color: $color-zambezi;
     }
@@ -51,16 +73,60 @@
 
   &__input-reset {
     position: relative;
-    bottom: 32px;
-    left: 92%;
+    top: 10px;
+    right: 30px;
     width: 24px;
     height: 24px;
+    min-width: 24px;
+    min-height: 24px;
     path {
       fill: $color-zambezi;
     }
   }
 
+  &__input:focus {
+    color: $color-zambezi;
+  }
+
   &__input:not(:focus):empty + &__input-reset {
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .edit-form {
+    &__wrapper {
+      padding: 32px 28px;
+      width: 287px;
+    }
+    &__title {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+    }
+    &__input {
+      width: 287px;
+    }
+    &__button {
+      margin-top: 4px;
+      width: 100%;
+    }
+  }
+
+  .form-input {
+    label {
+      margin-bottom: 12px;
+    }
+    overflow: hidden;
+
+    &__input-reset {
+      position: relative;
+      bottom: 30px;
+    }
+    &__input {
+      height: 19px;
+      padding: 10px 8px 10px 16px;
+      min-width: 257px;
+      margin-bottom: 24px;
+    }
   }
 }

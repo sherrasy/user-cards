@@ -2,7 +2,9 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    max-width: 360px;
+    max-height: 732px;
+    gap: 26px;
     padding: 40px;
     background-color: $color-white;
     border-radius: 16px;
@@ -13,6 +15,7 @@
     max-width: 280px;
     max-height: 485px;
     object-fit: cover;
+    border-radius: 8px;
   }
 }
 
@@ -24,6 +27,7 @@
   }
 
   &__option {
+    margin-bottom: 14px;
     padding: 12px 0;
     border-bottom: 1px solid $color-gainsboro;
     @include font-params-text-2(500, $color-nobel);
@@ -33,6 +37,31 @@
     &:hover {
       cursor: pointer;
       @include font-params-text-2(500, $color-pelorous);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    &__wrapper {
+      max-width: 343px;
+      height: 380px;
+      max-height: 380px;
+      gap: 12px;
+      padding: 28px;
+    }
+    &__image img {
+      width: 287px;
+      height: 187px;
+      max-width: 287px;
+      max-height: 187px;
+    }
+  }
+
+  .settings {
+    &__option {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
     }
   }
 }

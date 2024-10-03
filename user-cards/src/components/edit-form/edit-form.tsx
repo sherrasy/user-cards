@@ -61,6 +61,7 @@ function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
           <label htmlFor={FormFieldName.Name}>
             <span className='form-input__label'>{FormFieldLabel.Name}</span>
           </label>
+          <div className='form-input__input-wrapper'>
           <input
             type='text'
             id={FormFieldName.Name}
@@ -76,10 +77,12 @@ function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
             onClick={() => resetDataInput(FormFieldName.Name)}
           />
         </div>
+        </div>
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.UserName}>
             <span className='form-input__label'>{FormFieldLabel.UserName}</span>
           </label>
+          <div className='form-input__input-wrapper'>
           <input
             type='text'
             id={FormFieldName.UserName}
@@ -95,10 +98,12 @@ function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
             onClick={() => resetDataInput(FormFieldName.UserName)}
           />
         </div>
+        </div>
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.Email}>
             <span className='form-input__label'>{FormFieldLabel.Email}</span>
           </label>
+          <div className='form-input__input-wrapper'>
           <input
             type='email'
             id={FormFieldName.Email}
@@ -114,10 +119,12 @@ function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
             onClick={() => resetDataInput(FormFieldName.Email)}
           />
         </div>
+        </div>
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.City}>
             <span className='form-input__label'>{FormFieldLabel.City}</span>
           </label>
+          <div className='form-input__input-wrapper'>
           <input
             type='text'
             id={FormFieldName.City}
@@ -133,10 +140,12 @@ function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
             onClick={() => resetDataInput(FormFieldName.City)}
           />
         </div>
+        </div>
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.Phone}>
             <span className='form-input__label'>{FormFieldLabel.Phone}</span>
           </label>
+          <div className='form-input__input-wrapper'>
           <input
             type='tel'
             id={FormFieldName.Phone}
@@ -152,12 +161,14 @@ function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
             onClick={() => resetDataInput(FormFieldName.Phone)}
           />
         </div>
+        </div>
         <div className='edit-form__input form-input'>
           <label htmlFor={FormFieldName.CompanyName}>
             <span className='form-input__label'>
               {FormFieldLabel.CompanyName}
             </span>
           </label>
+          <div className='form-input__input-wrapper'>
           <input
             type='text'
             id={FormFieldName.CompanyName}
@@ -171,7 +182,7 @@ function EditForm({ user, handleVisibilityPopup }: EditFormProps): JSX.Element {
           <Cross
             className='form-input__input-reset'
             onClick={() => resetDataInput(FormFieldName.CompanyName)}
-          />
+          /></div>
         </div>
         <button
           className='edit-form__button'

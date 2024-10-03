@@ -33,7 +33,7 @@ function EditUserPage(): JSX.Element {
         <main>
           <BackButton isDisabled={isPopupVisible} />
           <section className='edit-user-page__user-data'>
-            <Profile/>
+            <Profile avatar={user.avatar}/>
             <EditForm user={user} handleVisibilityPopup={handleVisibilityPopup}/>
           </section>
         </main>
