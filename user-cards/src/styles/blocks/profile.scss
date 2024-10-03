@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     max-width: 360px;
-    gap: 40px;
+    max-height: 732px;
+    gap: 26px;
     padding: 40px;
     background-color: $color-white;
     border-radius: 16px;
@@ -26,6 +27,7 @@
   }
 
   &__option {
+    margin-bottom: 14px;
     padding: 12px 0;
     border-bottom: 1px solid $color-gainsboro;
     @include font-params-text-2(500, $color-nobel);
@@ -43,8 +45,9 @@
   .profile {
     &__wrapper {
       max-width: 343px;
-      max-height: 435px;
-      gap: 24px;
+      height: 380px;
+      max-height: 380px;
+      gap: 12px;
       padding: 28px;
     }
     &__image img {
@@ -57,7 +60,7 @@
 
   .settings {
     &__option {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       padding-bottom: 8px;
     }
   }

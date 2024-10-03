@@ -33,13 +33,19 @@
 @media screen and (max-width: 767px) {
   .back-button {
     &__wrapper {
-      margin: 14px 0;
+      margin: 12px 18px;
     }
 
     &__icon {
+      width: 22px;
+      height: 22px;
       path:first-child {
         stroke: none;
       }
+    }
+    &__text {
+      @include font-params-text-2(600, $color-zambezi);
+      transform: scaleX(1.1);
     }
   }
 }

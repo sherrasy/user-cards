@@ -1,5 +1,7 @@
 .cards-list {
-  margin-top: 40px;
+  &:first-of-type {
+    margin-top: 44px;
+  }
 
   &__title {
     margin: 0;
@@ -21,7 +23,12 @@
 
 @media screen and (max-width: 767px) {
   .cards-list {
-    margin-top: 20px;
+    &:first-of-type {
+      margin-top: 34px;
+    }
+
+    margin-top: 8px;
+
     &__container {
       max-width: 344px;
       margin: 16px 0;

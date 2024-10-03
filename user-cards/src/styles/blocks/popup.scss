@@ -30,6 +30,8 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    margin-top: 160px;
+    margin-left: 28px;
     gap: 20px;
     padding: 40px;
     height: 131px;
@@ -40,7 +42,7 @@
 
   &__cross-icon {
     position: relative;
-    bottom: 80px;
+    bottom: 0;
     right: 38px;
     width: 28px;
     height: 28px;
@@ -64,9 +66,8 @@
     }
 
     &__cross-icon {
-      position: fixed;
-      top: 38%;
-      right: 58px;
+      top: 10px;
+      right: 38px;
     }
   }
 }

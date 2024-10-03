@@ -10,14 +10,14 @@
   main {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 18px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .main-page {
     main {
-      gap: 32px;
+      gap: 10px;
     }
   }
 }

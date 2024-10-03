@@ -47,12 +47,13 @@
   }
 
   &__footer {
-    @include font-params-text-2(500, $color-nobel);
+    @include font-params-caption($color-nobel);
   }
 
   &__controls {
     position: relative;
-    left: 10px;
+    right: 0;
+    top: 2px;
   }
 
   &__dropdown-toggle {
@@ -77,8 +78,10 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   max-width: 160px;
+  margin-top: 4px;
+
   &__name {
     word-wrap: break-word;
     @include font-params-headline($color-pelorous);
@@ -139,7 +142,7 @@
 
     &__controls {
       position: relative;
-      left: 10px;
+      left: 5px;
     }
 
     &__dropdown-toggle {
@@ -151,11 +154,13 @@
     }
 
     &__main-info {
-      min-height: 74px;
+      min-height: 72px;
     }
   }
 
   .card-info {
     max-width: 106px;
+    margin-top: 0;
+    gap: 8px;
   }
 }
